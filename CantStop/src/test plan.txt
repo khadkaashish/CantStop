@@ -1,0 +1,35 @@
+Test Cases
+
+Test 1: Default Constructor (1 Die)
+Input: Create a Dice object with the default constructor (1 die).
+Expected Output: The program should roll 1 die and produce a value between 1 and 6.
+
+//-----------------------------
+Test 2: Constructor with 2 Dice
+Input: Create a Dice object with 2 dice.
+Expected Output: The program should roll 2 dice and produce 2 values, each between 1 and 6.
+
+//-----------------------------
+Test 3: Constructor with 3 Dice
+Input: Create a Dice object with 3 dice.
+Expected Output: The program should roll 3 dice and produce 3 values, each between 1 and 6.
+
+//-----------------------------
+Test 4: Constructor with 4 Dice
+Input: Create a Dice object with 4 dice.
+Expected Output: The program should roll 4 dice and produce 4 values, each between 1 and 6.
+
+//-----------------------------
+Test 5: Constructor with 5 Dice
+Input: Create a Dice object with 5 dice.
+Expected Output: The program should roll 5 dice and produce 5 values, each between 1 and 6.
+
+//-----------------------------
+Test 6: Constructor with 6 Dice
+Input: Create a Dice object with 6 dice.
+Expected Output: The program should roll 6 dice and produce 6 values, each between 1 and 6.
+
+//-----------------------------
+Test 7: Constructor with 0 Dice
+Input: Create a Dice object with 0 dice.
+Expected Output: Invalid input.
