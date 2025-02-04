@@ -3,7 +3,6 @@
 // Author:  Ashish Khadka and Aryan Tandon
 // ===============================================================
 #include "Dice.hpp"
-#include "tools.hpp"
 //-----------------------------------------------------------------
 Dice::Dice (int n) : nDice (n) {
 
