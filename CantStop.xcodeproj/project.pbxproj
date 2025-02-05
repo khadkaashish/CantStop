@@ -11,6 +11,8 @@
 		873A7BBA2D4ACA44006574D7 /* tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 873A7BB92D4ACA44006574D7 /* tools.cpp */; };
 		873A7BBF2D4ACE84006574D7 /* Dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 873A7BBD2D4ACE84006574D7 /* Dice.cpp */; };
 		873A7BC82D4B0939006574D7 /* unitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 873A7BC72D4B0939006574D7 /* unitTest.cpp */; };
+		8747B5032D53EA62005F11B0 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8747B5012D53EA62005F11B0 /* Player.cpp */; };
+		8747B5062D53F865005F11B0 /* enums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8747B5042D53F865005F11B0 /* enums.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,10 @@
 		873A7BBD2D4ACE84006574D7 /* Dice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dice.cpp; sourceTree = "<group>"; };
 		873A7BBE2D4ACE84006574D7 /* Dice.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dice.hpp; sourceTree = "<group>"; };
 		873A7BC72D4B0939006574D7 /* unitTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = unitTest.cpp; sourceTree = "<group>"; };
+		8747B5012D53EA62005F11B0 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		8747B5022D53EA62005F11B0 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		8747B5042D53F865005F11B0 /* enums.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = enums.cpp; sourceTree = "<group>"; };
+		8747B5052D53F865005F11B0 /* enums.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = enums.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 				873A7BB92D4ACA44006574D7 /* tools.cpp */,
 				873A7BB82D4ACA44006574D7 /* tools.hpp */,
 				873A7BC72D4B0939006574D7 /* unitTest.cpp */,
+				8747B5012D53EA62005F11B0 /* Player.cpp */,
+				8747B5022D53EA62005F11B0 /* Player.hpp */,
+				8747B5042D53F865005F11B0 /* enums.cpp */,
+				8747B5052D53F865005F11B0 /* enums.hpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -142,8 +152,10 @@
 			files = (
 				873A7BBF2D4ACE84006574D7 /* Dice.cpp in Sources */,
 				873A7BC82D4B0939006574D7 /* unitTest.cpp in Sources */,
+				8747B5062D53F865005F11B0 /* enums.cpp in Sources */,
 				873A7BB22D4AC98F006574D7 /* main.cpp in Sources */,
 				873A7BBA2D4ACA44006574D7 /* tools.cpp in Sources */,
+				8747B5032D53EA62005F11B0 /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

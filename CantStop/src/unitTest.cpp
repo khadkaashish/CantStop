@@ -15,9 +15,6 @@ void rollAndPrint(Dice& dice, ofstream& testOutput, const string& testName) {
 }
 
 void unitDice() {
-	// Seed the random number generator once
-	srand(time(nullptr));
-
 	// Open the test output file in append mode
 	ofstream testOutput("test_output.txt", ios::app);
 
@@ -50,7 +47,6 @@ void unitDice() {
 		rollAndPrint(dice4, testOutput, "Test 4: Rolling 4 dice");
 	}
 
-
 	// Test 5: Constructor with 5 Dice
 	{
 		Dice dice5(5);  // Constructor with 5 dice
@@ -66,13 +62,7 @@ void unitDice() {
 	
 	// Test 7: Edge Case – 0 Dice (Invalid Input)
 	{
-		try {
-			Dice dice0(0);  // Attempt to create a Dice object with 0 dice
-			rollAndPrint(dice0, testOutput, "Test 7: Rolling 0 dice (invalid input)");
-		} catch (const exception& e) {
-			fatal("Invalid Input - 0");
-			testOutput << "Test 7: Invalid Input - " << e.what() << endl;
-			testOutput << "-------------------------" << endl;
-		}
+		Dice dice6(0);  // Constructor with 0 dice
+		rollAndPrint(dice6, testOutput, "Test 6: Rolling 0 dice");
 	}
 }

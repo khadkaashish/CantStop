@@ -5,13 +5,10 @@
 #include "Dice.hpp"
 //-----------------------------------------------------------------
 Dice::Dice (int n) : nDice (n) {
-
-	diceValues = new int [nDice];
-	srand(time(NULL));
-}
-
-Dice::~Dice(){
-	delete[] diceValues;
+	if (nDice > 0 and nDice <=6){
+		diceValues = new int [nDice];
+	}
+	else fatal("Invalid input: "+to_string(nDice));
 }
 
 //-----------------------------------------------------------------

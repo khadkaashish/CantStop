@@ -9,11 +9,11 @@ class Dice {
 private:
 	int nDice;
 	int* diceValues;
-
+	
 public:
 //	Constructor with default value of 1 dice
 	Dice(int n = 1);
-	~Dice();
+	~Dice(){delete[] diceValues;}
 	
 //	returns the array of values when we roll the dice
 	const int* roll();

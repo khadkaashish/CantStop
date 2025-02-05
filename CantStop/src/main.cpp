@@ -9,6 +9,7 @@ void unitDice();
 
 int main(int argc, const char * argv[]) {
     banner();
+	srand(int(time(nullptr))); // Seed the random number generator once
 	unitDice();
     bye();
 }
