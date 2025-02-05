@@ -16,3 +16,21 @@ Rolled: 4 2 2 4 3
 Test 6: Rolling 6 dice
 Rolled: 6 3 6 4 4 5 
 -------------------------
+Test 1: Rolling 1 die (default constructor)
+Rolled: 5 
+-------------------------
+Test 2: Rolling 2 dice
+Rolled: 3 1 
+-------------------------
+Test 3: Rolling 3 dice
+Rolled: 3 4 5 
+-------------------------
+Test 4: Rolling 4 dice
+Rolled: 6 2 3 3 
+-------------------------
+Test 5: Rolling 5 dice
+Rolled: 3 1 6 5 3 
+-------------------------
+Test 6: Rolling 6 dice
+Rolled: 4 2 1 3 3 1 
+-------------------------

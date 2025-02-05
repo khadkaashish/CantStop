@@ -5,5 +5,5 @@
 #pragma once
 #include "tools.hpp"
 // -----------------------------------------------------------------
-enum class EColor {White, Yellow, Green, Blue, Orange, Error};
+enum class ECcolor {White, Yellow, Green, Blue, Orange, Error};
 extern const string colorNames[];

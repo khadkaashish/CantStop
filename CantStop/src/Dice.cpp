@@ -3,6 +3,7 @@
 // Author:  Ashish Khadka and Aryan Tandon
 // ===============================================================
 #include "Dice.hpp"
+#include "Player.hpp"
 //-----------------------------------------------------------------
 Dice::Dice (int n) : nDice (n) {
 	if (nDice > 0 and nDice <=6){
