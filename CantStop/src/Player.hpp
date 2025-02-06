@@ -8,23 +8,31 @@
 // -----------------------------------------------------------------
 class Player{
 private:
-	string fullName;
+	string name;
 	ECcolor color;
 	int score;
 	int scoreboard[3];
+	
+	static bool takenColors[4]; // Track if colors are used (Index: 0=Orange, 1=Blue, 2=Yellow, 3=Green
+	static vector<string> takenNames; // Track used player names
 	
 public:
 	Player(const string& playerName, ECcolor playerColor);
 	~Player(){}
 	
-	//	Accessor functions
+//	Accessor functions
 	ECcolor getColor() const;
 	int getScore() const;
 	
-	//	stores the number of captured columns
+//	stores the number of captured columns
 	bool wonColumn(int colNum);
 	
-	//	Print function
+//	functions to handle name and color chosen by players
+	static bool isColorTaken (ECcolor playerColor);
+	static bool isNameTaken (const string& playerName);
+	static void resetTakenData();
+	
+//	Print function
 	ostream& print(ostream& os) const;
 };
 

@@ -1,35 +1,56 @@
 Test Cases
 
-Test 1: Default Constructor (1 Die)
-Input: Create a Dice object with the default constructor (1 die).
-Expected Output: The program should roll 1 die and produce a value between 1 and 6.
+Testing User Input:
+1. Name should not have any spaces and players should not have the same names
+2. Each player has to choose a distinct color
+
+Initial Input:
+Player 1 name: Ash  ishKh. adka
+Player 2 name: Ary anTand on 
+Expected output: 
+AshishKhadka
+AryanTandon
+
+Player 1 color: o for orange
+Player 2 color: b for blue
+//----------------------------
+
+Test 1: getColor()
+Purpose: Verify that the getColor() function correctly returns the color of the player.
+Input: 
+Orange
+Green
+
+Expected Output: 
+Player 1 color is correct (Orange)
+Player 2 color is incorrect
 
 //-----------------------------
-Test 2: Constructor with 2 Dice
-Input: Create a Dice object with 2 dice.
-Expected Output: The program should roll 2 dice and produce 2 values, each between 1 and 6.
+Test 2: getScore()
+Purpose: Verify that the getScore() function returns the initial score.
+Expected Output: 
+Player 1 score is correct (0).
+Player 2 score is correct (0).
 
 //-----------------------------
-Test 3: Constructor with 3 Dice
-Input: Create a Dice object with 3 dice.
-Expected Output: The program should roll 3 dice and produce 3 values, each between 1 and 6.
+Test 3: Testing wonColumn():
+Purpose: Test if the wonColumn() function correctly updates the player's score when they capture a column.
+Expected Output: 
+Player 1 column 3 captured correctly.
+Player 1 column 5 captured correctly.
+Player 1 captured all columns and won!
 
 //-----------------------------
-Test 4: Constructor with 4 Dice
-Input: Create a Dice object with 4 dice.
-Expected Output: The program should roll 4 dice and produce 4 values, each between 1 and 6.
+Test 4: Testing operator<< (printing players):
+Purpose: Ensure that the operator<< correctly prints the player details. 
+Player 1 should win based on Test 3.
+Player 1:
+Player Name: AshishKhadka
+Color:  	Orange
+Score: 3
 
-//-----------------------------
-Test 5: Constructor with 5 Dice
-Input: Create a Dice object with 5 dice.
-Expected Output: The program should roll 5 dice and produce 5 values, each between 1 and 6.
+Player 2:
+Player Name: AryanTandon
+Color:  	Blue
+Score: 0
 
-//-----------------------------
-Test 6: Constructor with 6 Dice
-Input: Create a Dice object with 6 dice.
-Expected Output: The program should roll 6 dice and produce 6 values, each between 1 and 6.
-
-//-----------------------------
-Test 7: Constructor with 0 Dice
-Input: Create a Dice object with 0 dice.
-Expected Output: Invalid input.

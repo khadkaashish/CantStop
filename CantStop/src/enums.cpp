@@ -4,4 +4,4 @@
 // ===============================================================
 #include "enums.hpp"
 //-----------------------------------------------------------------
-const string colorNames[] = {"White", "Orange", "Yellow", "Green", "Blue", "Error"};
+const string colorNames[] = {"White", "Yellow", "Green", "Blue", "Orange", "Error"};

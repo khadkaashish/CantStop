@@ -9,7 +9,7 @@ Dice::Dice (int n) : nDice (n) {
 	if (nDice > 0 and nDice <=6){
 		diceValues = new int [nDice];
 	}
-	else fatal("Invalid input: "+to_string(nDice));
+	else fatal("Invalid input: " + to_string(nDice));
 }
 
 //-----------------------------------------------------------------

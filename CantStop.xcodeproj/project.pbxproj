@@ -84,11 +84,11 @@
 				873A7BBE2D4ACE84006574D7 /* Dice.hpp */,
 				873A7BB92D4ACA44006574D7 /* tools.cpp */,
 				873A7BB82D4ACA44006574D7 /* tools.hpp */,
-				873A7BC72D4B0939006574D7 /* unitTest.cpp */,
 				8747B5012D53EA62005F11B0 /* Player.cpp */,
 				8747B5022D53EA62005F11B0 /* Player.hpp */,
 				8747B5042D53F865005F11B0 /* enums.cpp */,
 				8747B5052D53F865005F11B0 /* enums.hpp */,
+				873A7BC72D4B0939006574D7 /* unitTest.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";

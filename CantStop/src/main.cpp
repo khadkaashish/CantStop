@@ -6,13 +6,18 @@
 #include "Dice.hpp"
 #include "Player.hpp"
 // ----------------------------------------------------------------------
-void unitDice();
-void testPlayer();
+void testPlayer(ofstream& outputFile);
 
 int main(int argc, const char * argv[]) {
     banner();
 	srand(int(time(nullptr))); // Seed the random number generator once
-//	unitDice();
-	testPlayer();
+	ofstream outputFile("test_output.txt"); // Open output file
+	if (outputFile.is_open()) {
+		testPlayer(outputFile); // Run the player tests
+		outputFile.close(); // Close the file
+		cout << "Test results written to test_output.txt\n";
+	} else {
+		cout << "Error opening test_output.txt\n";
+	}
     bye();
 }
