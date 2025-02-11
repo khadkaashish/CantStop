@@ -11,19 +11,20 @@ Expected output:
 AshishKhadka
 AryanTandon
 
-Player 1 color: o for orange
-Player 2 color: b for blue
+Player 1 color: o for green
+Player 2 color: g for orange
 //----------------------------
 
 Test 1: getColor()
 Purpose: Verify that the getColor() function correctly returns the color of the player.
 Input: 
-Orange
 Green
+Orange
+
 
 Expected Output: 
-Player 1 color is correct (Orange)
-Player 2 color is incorrect
+Player 1 color is correct (Green)
+Player 2 color is correct (Orange)
 
 //-----------------------------
 Test 2: getScore()
@@ -46,11 +47,11 @@ Purpose: Ensure that the operator<< correctly prints the player details.
 Player 1 should win based on Test 3.
 Player 1:
 Player Name: AshishKhadka
-Color:  	Orange
+Color:  	Green
 Score: 3
 
 Player 2:
 Player Name: AryanTandon
-Color:  	Blue
+Color:  	Orange
 Score: 0
 

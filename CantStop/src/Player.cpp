@@ -18,7 +18,7 @@ Player::Player(const string& playerName, ECcolor playerColor)
 	}
 
 	// Check if color is taken
-	int colorIndex = static_cast<int>(playerColor) - 1;
+	int colorIndex = (int)(playerColor) - 1;
 	if (colorIndex < 0 || colorIndex >= 4 || takenColors[colorIndex]) {
 		fatal("Color already taken or invalid! Choose a different color.");
 	}
@@ -68,7 +68,6 @@ bool Player::isNameTaken(const string& playerName) {
 	transform(lowerName.begin(), lowerName.end(), lowerName.begin(), ::tolower);
 	return find(takenNames.begin(), takenNames.end(), lowerName) != takenNames.end();
 }
-
 
 //-----------------------------------------------------------------
 // Reset the taken colors (for a new game)

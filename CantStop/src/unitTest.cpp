@@ -51,7 +51,7 @@ ECcolor getColorFromUser() {
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			}
 		
-		if (!Player::isColorTaken(selectedColor)) {
+		if (selectedColor != ECcolor::Error && !Player::isColorTaken(selectedColor)) {
 			return selectedColor;
 		} else {
 		  cout << "This color is already taken. Choose another.\n";
@@ -74,18 +74,16 @@ void testPlayer(ofstream& outputFile) {
 	// Create Player instances
 	Player player1(name1, color1);
 	Player player2(name2, color2);
-	cout<< player1;
-	cout<< player2;
-
+	
 	// Test getColor()
 	outputFile << "Testing getColor():\n";
-	if (player1.getColor() == ECcolor::Orange) {
-		outputFile << "Player 1 color is correct (Orange).\n";
+	if (player1.getColor() == ECcolor::Green) {
+		outputFile << "Player 1 color is correct (Green).\n";
 	} else {
 		outputFile << "Player 1 color is incorrect.\n";
 	}
-	if (player2.getColor() == ECcolor::Blue) {
-		outputFile << "Player 2 color is correct (Blue).\n";
+	if (player2.getColor() == ECcolor::Orange) {
+		outputFile << "Player 2 color is correct (Orange).\n";
 	} else {
 		outputFile << "Player 2 color is incorrect.\n";
 	}

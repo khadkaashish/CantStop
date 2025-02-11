@@ -1,6 +1,6 @@
 Testing getColor():
-Player 1 color is correct (Orange).
-Player 2 color is correct (Blue).
+Player 1 color is correct (Green).
+Player 2 color is correct (Orange).
 
 Testing getScore():
 Player 1 score is correct (0).
@@ -14,12 +14,12 @@ Player 1 captured all columns and won!
 Testing operator<< (printing players):
 Player 1:
 Player Name: AshishKhadka
-Color:  	Orange
+Color:  	Green
 Score: 3
 
 Player 2:
 Player Name: AryanTandon
-Color:  	Blue
+Color:  	Orange
 Score: 0
 
 All Player tests completed!
