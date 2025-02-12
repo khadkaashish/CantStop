@@ -31,12 +31,15 @@ Player::Player(const string& playerName, ECcolor playerColor)
 }
 
 //-----------------------------------------------------------------
+// Get the tile color of the player.
 ECcolor Player::getColor() const { return color; }
 
 //-----------------------------------------------------------------
+// Get the score of the player.
 int Player::getScore() const { return score; }
 
 //-----------------------------------------------------------------
+// Check if player has won the column.
 bool Player::wonColumn(int colNum){
 	if (score<3){
 		scoreboard[score] = colNum; // store the score in the next available column
@@ -47,6 +50,7 @@ bool Player::wonColumn(int colNum){
 }
 
 //-----------------------------------------------------------------
+// Print the player name, tile color and score.
 ostream& Player::print(ostream& os) const {
 	os <<"Player Name: " << name
 	<<"\nColor: " <<" \t" <<colorNames[(int)(color)]
