@@ -1,13 +1,34 @@
-//
-//  Column.hpp
-//  CantStop
-//
-//  Created by Ashish Khadka on 2/12/25.
-//
+// ================================================================
+// Name: Can't Stop Board Game        Feb, 2025
+// Author:  Ashish Khadka and Aryan Tandon      File: Column.hpp
+// ================================================================
+#pragma once
+#include "tools.hpp"
+#include "Player.hpp"
+#include "enums.hpp"
+// -----------------------------------------------------------------
 
-#ifndef Column_hpp
-#define Column_hpp
+class Column{
+private:
+    static const int columnLengths[13];
+    const int columnNumber;
+    ECstate state;
+    int markers[5] = {0};
+    
+public:
+    Column(int colNum);
+    ~Column()=default;
+    
+	ECstate getState() const { return state; } // Returns the current state of the column
 
-#include <stdio.h>
-
-#endif /* Column_hpp */
+    bool startTower(Player* player);
+    bool move();
+    void stop(Player* player);
+    void bust();
+    
+	ostream& print(ostream& os) const;
+};
+//  Overload the output operator
+inline ostream& operator<<(ostream& os, Column& col) {
+	return col.print(os);
+}

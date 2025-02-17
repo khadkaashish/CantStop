@@ -7,22 +7,22 @@
 // -----------------------------------------------------------------
 class Dice {
 private:
-	int nDice;
-	int* diceValues;
-	
+    int nDice;
+    int* diceValues;
+    
 public:
-//	Constructor with default value of 1 dice
-	Dice(int n = 1);
-	~Dice(){delete[] diceValues;}
-	
-//	returns the array of values when we roll the dice
-	const int* roll();
+//    Constructor with default value of 1 dice
+    Dice(int n = 1);
+    ~Dice(){delete[] diceValues;}
+    
+//    returns the array of values when we roll the dice
+    const int* roll();
 
-//	Print the dice values
-	ostream& print(ostream& os) const;
+//    Print the dice values
+    ostream& print(ostream& os) const;
 };
 
-//	Overload the output operator
+//    Overload the output operator
 inline ostream& operator<<(ostream& os, Dice& dice) {
-	return dice.print(os);
+    return dice.print(os);
 }

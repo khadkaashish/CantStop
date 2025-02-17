@@ -6,4 +6,6 @@
 #include "tools.hpp"
 // -----------------------------------------------------------------
 enum class ECcolor {White, Yellow, Green, Blue, Orange, Error};
+enum class ECstate { Available, Pending, Captured };
 extern const string colorNames[];
+extern const string stateNames[];

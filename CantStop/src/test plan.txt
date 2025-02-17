@@ -1,57 +1,31 @@
 Test Cases
 
-Testing User Input:
-1. Name should not have any spaces and players should not have the same names
-2. Each player has to choose a distinct color
-
-Initial Input:
-Player 1 name: Ash  ishKh. adka
-Player 2 name: Ary anTand on 
-Expected output: 
-AshishKhadka
-AryanTandon
-
-Player 1 color: o for green
-Player 2 color: g for orange
-//----------------------------
-
-Test 1: getColor()
-Purpose: Verify that the getColor() function correctly returns the color of the player.
-Input: 
-Green
-Orange
-
-
-Expected Output: 
-Player 1 color is correct (Green)
-Player 2 color is correct (Orange)
-
+Setup:
+Create two Player objects with different colors (e.g., Red and Blue).
+Create two Column objects of different lengths (4 and 11)
 //-----------------------------
-Test 2: getScore()
-Purpose: Verify that the getScore() function returns the initial score.
+
+Test 1: getState():
+Verify that both columns (4 and 11) are initialized to the ECstate::Available state.
+
+Test 2: startTower():
+Ensure that the startTower method works correctly by testing it for both players and verifying it returns true.
+Ensure that white tower is placed when a player starts.
+Expected Output:
+4 Available  T-G--    -----    -----    -----    -----    -----    ----- 
+
+Test 3: move():
+Test 3.1: 
+Ensure that the move method works correctly by testing it for both columns and verifying it returns true.
 Expected Output: 
-Player 1 score is correct (0).
-Player 2 score is correct (0).
+4 Available  -----    T-G--    -----    -----    -----    -----    -----  
 
-//-----------------------------
-Test 3: Testing wonColumn():
-Purpose: Test if the wonColumn() function correctly updates the player's score when they capture a column.
+Test 3.2:
+Ensure that the state of the player changes to pending after player reaches the last square.
 Expected Output: 
-Player 1 column 3 captured correctly.
-Player 1 column 5 captured correctly.
-Player 1 captured all columns and won!
+11 Pending  -----    -----    -----    -----    T---O  
 
-//-----------------------------
-Test 4: Testing operator<< (printing players):
-Purpose: Ensure that the operator<< correctly prints the player details. 
-Player 1 should win based on Test 3.
-Player 1:
-Player Name: AshishKhadka
-Color:  	Green
-Score: 3
-
-Player 2:
-Player Name: AryanTandon
-Color:  	Orange
-Score: 0
-
+Test 4: stop():
+Ensure that the white tower is removed when a player stops and the moves are recorded. Only the player tile is placed.
+Expected Output:
+4 Available  -----    --G--    -----    -----    -----    -----    ----- 

@@ -1,25 +1,23 @@
-Testing getColor():
-Player 1 color is correct (Green).
-Player 2 color is correct (Orange).
+Starting Column class unit test...
+Initial Columns:
+4 Available  -----    -----    -----    -----    -----    -----    -----  
+11 Available  -----    -----    -----    -----    -----  
 
-Testing getScore():
-Player 1 score is correct (0).
-Player 2 score is correct (0).
+Testing startTower function...
+Player 1 started tower in column 4.
+Player 2 started tower in column 11.
+4 Available  T-G--    -----    -----    -----    -----    -----    -----  
+11 Available  T---O    -----    -----    -----    -----  
 
-Testing wonColumn():
-Player 1 column 3 captured correctly.
-Player 1 column 5 captured correctly.
-Player 1 captured all columns and won!
+Testing move function...
+Moved tower in column 4.
+Moved tower in column 11.
+4 Available  -----    T-G--    -----    -----    -----    -----    -----  
+11 Available  -----    T---O    -----    -----    -----  
 
-Testing operator<< (printing players):
-Player 1:
-Player Name: AshishKhadka
-Color:  	Green
-Score: 3
-
-Player 2:
-Player Name: AryanTandon
-Color:  	Orange
-Score: 0
-
-All Player tests completed!
+Testing stop function...
+4 Available  -----    --G--    -----    -----    -----    -----    -----  
+11 Available  -----    ----O    -----    -----    -----  
+11 Pending  -----    -----    -----    -----    T---O  
+4 Available  -----    -----    T---O    --G--    -----    -----    -----  
+Column class unit test completed.
