@@ -8,7 +8,7 @@
 #include "enums.hpp"
 #include "Column.hpp"
 // ----------------------------------------------------------------------
-void testColumn(ofstream& outputFile);
+void testColumn(ostream& outputFile);
 
 int main(int argc, const char * argv[]) {
     banner();

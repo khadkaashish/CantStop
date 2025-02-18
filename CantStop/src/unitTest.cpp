@@ -7,7 +7,7 @@
 #include "enums.hpp"
 #include "Column.hpp"
 //-----------------------------------------------------------------
-void testColumn(ofstream& outputFile) {
+void testColumn(ostream& outputFile) {
     outputFile << "Starting Column class unit test...\n";
     Column column1(4);  // Column 4 (length 7)
     Column column2(11); // Column 11 (length 5)
@@ -15,7 +15,6 @@ void testColumn(ofstream& outputFile) {
     outputFile << "Initial Columns:\n";
     column1.print(outputFile);
     column2.print(outputFile);
-
     Player player1("John",ECcolor::Green);
     Player player2("Randy",ECcolor::Orange);
 
@@ -34,7 +33,6 @@ void testColumn(ofstream& outputFile) {
 
     column1.print(outputFile);
     column2.print(outputFile);
-
     outputFile << "\nTesting move function...\n";
     if (column1.move()) {
         outputFile << "Moved tower in column 4.\n";
@@ -47,29 +45,28 @@ void testColumn(ofstream& outputFile) {
     } else {
         outputFile << "Move failed in column 11.\n";
     }
-
 	column1.print(outputFile);
 	column2.print(outputFile);
-
+	
+	outputFile << "\nTesting if pending is shown when player reaches the last square.\n";
+	column2.move();
+	column2.move();
+	column2.move();
+	column2.print(outputFile);
+	
+	outputFile << "\nTesting two players on the same column 4. Move Player 2 \n";
+	column1.startTower(&player2);
+	column1.print(outputFile);
+	column1.move();
+	column1.move();
+	column1.move();
+	column1.print(outputFile);
 
     outputFile << "\nTesting stop function...\n";
     column1.stop(&player1);
     column2.stop(&player2);
-
 	column1.print(outputFile);
 	column2.print(outputFile);
-
-    
-    column2.startTower(&player2);
-    column2.move();
-    column2.move();
-    column2.move();
-    column2.print(outputFile);
 	
-	column1.startTower(&player2);
-	column1.move();
-	column1.move();
-	column1.print(outputFile);
-    
     outputFile << "Column class unit test completed.\n";
 }

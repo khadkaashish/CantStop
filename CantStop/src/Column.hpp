@@ -7,25 +7,21 @@
 #include "Player.hpp"
 #include "enums.hpp"
 // -----------------------------------------------------------------
-
 class Column{
 private:
     static const int columnLengths[13];
     const int columnNumber;
     ECstate state;
-    int markers[5] = {0};
+    int squares[5] = {0};
     
 public:
     Column(int colNum);
-    ~Column()=default;
-    
+    ~Column() = default;
 	ECstate getState() const { return state; } // Returns the current state of the column
-
-    bool startTower(Player* player);
-    bool move();
-    void stop(Player* player);
-    void bust();
-    
+    bool startTower(Player* player); // player places tower in a new column
+	bool move(); // moves the player
+    void stop(Player* player); // player stops his turn
+    void bust(); // player's progress with the tower is lost
 	ostream& print(ostream& os) const;
 };
 //  Overload the output operator

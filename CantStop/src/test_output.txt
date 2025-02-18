@@ -12,12 +12,17 @@ Player 2 started tower in column 11.
 Testing move function...
 Moved tower in column 4.
 Moved tower in column 11.
-4 Available  -----    T-G--    -----    -----    -----    -----    -----  
-11 Available  -----    T---O    -----    -----    -----  
+4 Available  --G--    T----    -----    -----    -----    -----    -----  
+11 Available  ----O    T----    -----    -----    -----  
+
+Testing if pending is shown when player reaches the last square.
+11 Pending  ----O    -----    -----    -----    T----  
+
+Testing two players on the same column 4. Move Player 2 
+4 Available  T-G-O    -----    -----    -----    -----    -----    -----  
+4 Available  --G-O    -----    -----    T----    -----    -----    -----  
 
 Testing stop function...
-4 Available  -----    --G--    -----    -----    -----    -----    -----  
-11 Available  -----    ----O    -----    -----    -----  
-11 Pending  -----    -----    -----    -----    T---O  
-4 Available  -----    -----    T---O    --G--    -----    -----    -----  
+4 Available  ----O    -----    -----    --G--    -----    -----    -----  
+11 Captured  -----    -----    -----    -----    ----O  
 Column class unit test completed.

@@ -25,7 +25,12 @@ Ensure that the state of the player changes to pending after player reaches the 
 Expected Output: 
 11 Pending  -----    -----    -----    -----    T---O  
 
-Test 4: stop():
+Test 4: Testing two players on the same column:
+Use the startTower() to place player2 on column 4 where player1 is also playing. Move player2.
+Expected Output:
+4 Available  --G-O    -----    -----    T----    -----    -----    -----  
+
+Test 5: stop():
 Ensure that the white tower is removed when a player stops and the moves are recorded. Only the player tile is placed.
 Expected Output:
 4 Available  -----    --G--    -----    -----    -----    -----    ----- 

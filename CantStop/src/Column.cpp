@@ -19,8 +19,8 @@ ostream& Column::print(ostream& os) const {
     for (int i = 1; i <= columnLengths[columnNumber]; i++) {
         os << "  ";
         for (int j = 0; j < 5; j++) {
-            if (markers[j] == i) {
-                os << (j == 0 ? 'T' : colorNames[j][0]);
+            if (squares[j] == i) {
+				os << markerColor[j];
             }
             else os << "-";
         }
@@ -41,18 +41,18 @@ ostream& operator<<(ostream& os, const Column& col) {
 // Start a tower for a player
 bool Column::startTower(Player* player) {
     if (state == ECstate::Captured) return false;
-    ECcolor playerColor = player->getColor();
+    ECcolor color = player->getColor();
     
-    int playerIndex = (int)(playerColor);
-    markers[0] = (markers[playerIndex] == 0) ? 1 : markers[playerIndex] + 1;
+    int index = (int)(color);
+    squares[0] = (squares[index] == 0) ? 1 : squares[index] + 1;
     
-    if (markers[playerIndex] > 0) {
-        markers[playerIndex]++;
+    if (squares[index] > 0) {
+        squares[index]++;
     } else {
-        markers[playerIndex] = 1;
+        squares[index] = 1;
     }
     
-    if (markers[playerIndex] >= columnLengths[columnNumber]) {
+    if (squares[index] >= columnLengths[columnNumber]) {
         state = ECstate::Pending;
     }
     return true;
@@ -61,30 +61,25 @@ bool Column::startTower(Player* player) {
 //-----------------------------------------------------------------
 // Moves tower forward
 bool Column::move() {
-    if (state == ECstate::Captured) return false;
-    for (int& marker : markers) {
-        if (marker > 0 && marker < columnLengths[columnNumber]) {
-            marker++;
-        }
-        
-        if (marker == columnLengths[columnNumber]) {
-            state = ECstate::Pending;
-        }
-    }
-    return true;
+	if (state == ECstate::Captured) return false;
+	if (squares[0] > 0 && squares[0] < columnLengths[columnNumber]) {
+		squares[0]++;  // Move only the tower
+	}
+	if (squares[0] == columnLengths[columnNumber]) {
+		state = ECstate::Pending;
+	}
+	return true;
 }
 
 //-----------------------------------------------------------------
 // Stop and replace tower with tile
 void Column::stop(Player* player) {
-    ECcolor playerColor = player->getColor();
-    int playerIndex = (int)(playerColor);
+    int index = (int)(player->getColor());
+    if (squares[0] == 0) return;  // No tower to replace
+    squares[index] = squares[0]; // Convert tower into tile of player's color
+    squares[0] = 0;  // Remove the tower
     
-    if (markers[0] == 0) return;  // No tower to replace
-    markers[playerIndex] = markers[0]; // Convert tower into tile of player's color
-    markers[0] = 0;  // Remove the tower
-    
-    if (markers[playerIndex] > 0) {
+    if (squares[index] > 0) {
         if (state == ECstate::Pending) {
             state = ECstate::Captured;
             player->wonColumn(columnNumber);
@@ -93,7 +88,7 @@ void Column::stop(Player* player) {
 }
 
 //-----------------------------------------------------------------
-// Reset markers on bust
+// Reset squares on bust
 void Column::bust() {
     // Implementation to be added later
 }
