@@ -31,13 +31,6 @@ ostream& Column::print(ostream& os) const {
 }
 
 //-----------------------------------------------------------------
-// Overload operator <<
-ostream& operator<<(ostream& os, const Column& col) {
-    col.print(os);
-    return os;
-}
-
-//-----------------------------------------------------------------
 // Start a tower for a player
 bool Column::startTower(Player* player) {
     if (state == ECstate::Captured) return false;

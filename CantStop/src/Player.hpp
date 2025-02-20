@@ -37,6 +37,6 @@ public:
 };
 
 //  Overload the output operator
-inline ostream& operator<<(ostream& os, Player& player) {
+inline ostream& operator<<(ostream& os, const Player& player) {
     return player.print(os);
 }

@@ -3,19 +3,17 @@
 // Author:  Ashish Khadka and Aryan Tandon  Copyright: 2025
 // ======================================================================
 #include "tools.hpp"
-#include "Dice.hpp"
-#include "Player.hpp"
-#include "enums.hpp"
-#include "Column.hpp"
+#include "Game.hpp"
 // ----------------------------------------------------------------------
-void testColumn(ostream& outputFile);
+void testGame(ostream& outputFile, Game& game);
 
 int main(int argc, const char * argv[]) {
     banner();
     srand(int(time(nullptr))); // Seed the random number generator once
     ofstream outputFile("test_output.txt"); // Open output file
+	Game game;
     if (outputFile.is_open()) {
-        testColumn(outputFile);
+        testGame(cout, game);
         outputFile.close(); // Close the file
         cout << "Test results written to test_output.txt\n";
     } else {
