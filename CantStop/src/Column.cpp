@@ -83,5 +83,10 @@ void Column::stop(Player* player) {
 //-----------------------------------------------------------------
 // Reset squares on bust
 void Column::bust() {
-    // Implementation to be added later
+	// Remove the player's tower for this turn (reset the first element of squares array)
+	squares[0] = 0;  // Reset the player's tower for the current turn. Previous progress is kept intact
+	// If the column is not captured and the tower has been removed, it stays in the 'Available' state.
+	if (state == ECstate::Pending) {
+		state = ECstate::Available;  // Revert to Available if the column wasn't captured
+	}
 }
