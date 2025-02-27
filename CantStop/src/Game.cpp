@@ -93,5 +93,6 @@ void Game::rollAndPrint (ostream& os) {
 // Print the Game elements
 ostream& Game::print(ostream& os) {
 	rollAndPrint(os);
+	os << player << endl;
 	return os;
 }

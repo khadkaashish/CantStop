@@ -35,15 +35,15 @@ ostream& Column::print(ostream& os) const {
 bool Column::startTower(Player* player) {
     if (state == ECstate::Captured) return false;
     ECcolor color = player->getColor();
-    
+	
     int index = (int)(color);
     squares[0] = (squares[index] == 0) ? 1 : squares[index] + 1;
-    
-    if (squares[index] > 0) {
-        squares[index]++;
-    } else {
-        squares[index] = 1;
-    }
+	
+	if (squares[index] > 0){
+		squares[0]++;
+	}else{
+		squares[index] = 0;
+	}
     
     if (squares[index] >= columnLengths[columnNumber]) {
         state = ECstate::Pending;
@@ -55,8 +55,9 @@ bool Column::startTower(Player* player) {
 // Moves tower forward
 bool Column::move() {
 	if (state == ECstate::Captured) return false;
+	
 	if (squares[0] > 0 && squares[0] < columnLengths[columnNumber]) {
-		squares[0]++;  // Move only the tower
+		squares[0] += 1;  // Move only the tower
 	}
 	if (squares[0] == columnLengths[columnNumber]) {
 		state = ECstate::Pending;

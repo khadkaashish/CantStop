@@ -86,8 +86,8 @@ void Board::stop() {
 //-----------------------------------------------------------------
 // Resets columns where the player had towers (on a bust)
 void Board::bust() {
-	for (int i = 0; i < towerCount; i++) {
-		int colNum = activeTowers[i];
+	for (int n = 0; n < towerCount; n++) {
+		int colNum = activeTowers[n];
 		backBone[colNum]->bust();
 	}
 	towerCount = 0;
@@ -96,7 +96,8 @@ void Board::bust() {
 //-----------------------------------------------------------------
 // Print the Board
 ostream& Board::print(ostream& os) {
-	os << "\n Current Board State \n";
+	os << "Current Board State \n";
+	os << "Active towers: " << towerCount << endl;
 	for (int i = 2; i <= 12; i++) {
 		os << *backBone[i] << "\n";
 	}

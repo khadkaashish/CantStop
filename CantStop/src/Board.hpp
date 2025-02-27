@@ -12,7 +12,6 @@ private:
 	int activeTowers[3]; // column numbers that have towers
 	Column* backBone[13]; // array of column pointers
 	Player* currentPlayer; // pointer to active player
-	
 public:
 	Board();
 	~Board();

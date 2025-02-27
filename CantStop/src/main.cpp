@@ -12,7 +12,7 @@ int main(int argc, const char * argv[]) {
 	srand(int(time(nullptr))); // Seed the random number generator once
 	ofstream outputFile("test_output.txt"); // Open output file
 	if (outputFile.is_open()) {
-		testGame(cout);
+		testGame(outputFile);
 		outputFile.close(); // Close the file
 		cout << "Test results written to test_output.txt\n";
 	} else {
