@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------
 // Constructor: Initializes all columns
 Board::Board():towers(0), currPlayer(nullptr){
-//	Initialize backBone array with column objects (except 0 and 1)
+	// Initialize backBone with column objects
 	backBone[0] = nullptr;
 	backBone[1] = nullptr;
 	for (int m = 2; m <= 12; m++){
@@ -15,7 +15,7 @@ Board::Board():towers(0), currPlayer(nullptr){
 	
 	// Initialize active towers as unused
 	for (int k = 0; k < 3; k++){
-		towerCols[k] = 0; // 0 - no active towers in that column
+		towerCols[k] = 0; // 0 - no active towers in column
 	}
 }
 
@@ -97,9 +97,9 @@ void Board::bust() {
 // Print the Board
 ostream& Board::print(ostream& os) {
 	os << "Current Board State \n";
-	os << "Active towers: " << towers << endl;
+	os << "Active towers: " << towers << "\n\n";
 	for (int i = 2; i <= 12; i++) {
-		os << *backBone[i] << "\n";
+		os << setw(2) << *backBone[i] << "\n";
 	}
 	return os;
 }
