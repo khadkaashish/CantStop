@@ -4,8 +4,8 @@
 // ===============================================================
 #include "Player.hpp"
 //-----------------------------------------------------------------
-bool Player::takenColors[5] = {true, false, false, false, false}; // Initialize player color tracking
-vector<string> Player::takenNames = {};  // Initialize player name tracking
+bool Player::takenColors[5] = {true, false, false, false, false}; // used colors
+vector<string> Player::takenNames = {};  // used player names
 
 Player::Player(const string& name, ECcolor color)
                : name(name), color(color), score(0) {
