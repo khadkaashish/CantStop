@@ -26,6 +26,6 @@ public:
 	ostream& print (ostream& os);
 };
 //  Overload the output operator
-inline ostream& operator<<(ostream& os, Game& game) {
-	return game.print(os);
+inline ostream& operator<<(ostream& os, Game& g) {
+	return g.print(os);
 }

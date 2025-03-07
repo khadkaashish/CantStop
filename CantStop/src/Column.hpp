@@ -25,6 +25,6 @@ public:
 	ostream& print(ostream& os) const;
 };
 //  Overload the output operator
-inline ostream& operator<<(ostream& os, const Column& col) {
-	return col.print(os);
+inline ostream& operator<<(ostream& os, const Column& c) {
+	return c.print(os);
 }
