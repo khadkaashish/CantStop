@@ -28,7 +28,7 @@ Board::~Board() {
 }
 
 //-----------------------------------------------------------------
-// Starts a turn by resetting the tower counter and setting the player
+// Reset tower counter and set player for new turn
 void Board::startTurn(Player* player) {
 	currPlayer = player;
 	towers = 0;
