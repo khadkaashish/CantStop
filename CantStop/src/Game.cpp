@@ -23,20 +23,10 @@ Player Game::getNewPlayer() {
 // Function to get a valid player name (no spaces)
 string Game::getName() {
 	string name;
-	while (true) {
+	for (;;) {
 		cout << "Enter player name (no spaces): ";
-		cin.clear(); cin.sync(); // ignore any leftover newline from previous input
-		getline(cin, name);  // Read the user name
+		cin >> name;  // Read the user name using >>
 
-		// Remove spaces from the name
-		name.erase(remove(name.begin(), name.end(), ' '), name.end());
-		
-		// Check if the name is empty after removing spaces
-		if (name.empty()) {
-			cout << "Invalid name! The name cannot be empty or contain only spaces.\n";
-			continue;
-		}
-		
 		// Check if the name is already taken
 		if (Player::isNameTaken(name)) {
 			cout << "The name is already taken! Please choose a different name.\n";
@@ -52,10 +42,17 @@ string Game::getName() {
 ECcolor Game::getColor(){
 	char choice;
 	ECcolor color;
-	while (true) {
-		cout << "Select a color (B = Blue, G = Green, Y = Yellow, O = Orange): ";
+	
+	// Display available colors
+	cout << "Available colors:\n";
+	if (!Player::isColorTaken(ECcolor::Blue)) cout << "B: Blue\n";
+	if (!Player::isColorTaken(ECcolor::Green)) cout << "G: Green\n";
+	if (!Player::isColorTaken(ECcolor::Yellow)) cout << "Y: Yellow\n";
+	if (!Player::isColorTaken(ECcolor::Orange)) cout << "O: Orange\n";
+	
+	for (;;) {
+		cout << "Select a color: ";
 		cin >> choice;
-		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore remaining input
 		
 		// Convert to uppercase to handle lowercase input
 		choice = toupper(choice);
@@ -80,19 +77,15 @@ ECcolor Game::getColor(){
 }
 
 //-----------------------------------------------------------------
-// Function to roll and print a dice
-void Game::rollAndPrint (ostream& os) {
-	const int* rollResults = dice->roll(); // Roll the dice
-	for (int i = 0; i < 4; ++i) {
-		os << rollResults[i] << " ";
-	}
-	os << endl;
-}
-
-//-----------------------------------------------------------------
 // Print the Game elements
 ostream& Game::print(ostream& os) {
-	rollAndPrint(os);
+	const int* rollResults = dice->roll(); // Roll the dice
+	char labels[] = {'a', 'b', 'c', 'd'};
+	os << "Dice values = ";
+	for (int i = 0; i < 4; ++i) {
+		os << labels[i] << ":" << rollResults[i] << " ";
+	}
+	os << "\n" << endl;
 	os << player << endl;
 	return os;
 }

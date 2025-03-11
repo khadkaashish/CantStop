@@ -22,10 +22,9 @@ public:
 	Player* getPlayer(){ return &player; }
 	static string getName();
 	static ECcolor getColor();
-	void rollAndPrint(ostream& os);
 	ostream& print (ostream& os);
 };
 //  Overload the output operator
-inline ostream& operator<<(ostream& os, Game& g) {
-	return g.print(os);
+inline ostream& operator<<(ostream& os, Game& game) {
+	return game.print(os);
 }
