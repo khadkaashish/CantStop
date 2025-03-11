@@ -12,13 +12,7 @@ void testGame(ostream& os) {
 	Board board;
 	
 	// Use the player from the Game instance directly
-	Player* player1 = game.getPlayer();  // getPlayer() returns a reference to the player
-	
-	
-//	Player* player2 = game.getPlayer();
-//	board.startTurn(player2);
-
-	
+	Player* player1 = game.player(0);  // getPlayer() returns a reference to the player
 	
 	// Test 1: Board initialization and verify the lengths of all 11 Column objects
 	os << "\nTest 1: Board initialization" << endl;

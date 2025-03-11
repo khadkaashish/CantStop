@@ -4,19 +4,38 @@
 // ===============================================================
 #include "Game.hpp"
 //-----------------------------------------------------------------
-// Constructor initializes dice, players, and columns
+// Constructor initializes dice, 2-4 players, and columns
 Game::Game()
-	: dice(new Dice(4)),  // Initializes 4 dice
-	  player(getNewPlayer()){}
+	: dice(new Dice(4)){
+		getPlayers();
+	}
+
+Player* Game::player(int index) {
+	if (index < 0 || index >= players.size()) {
+		cout << "ERROR: Invalid player index " << index << endl;
+		return nullptr;  // Return NULL if index is invalid
+	}
+	return &players[index];  // Return pointer to the requested player
+}
 
 //-----------------------------------------------------------------
-// Gets a new player's name and color
-Player Game::getNewPlayer() {
-	string name;
-	ECcolor color;
-	name = getName();
-	color = getColor();
-	return Player(name, color);
+// Gets all players
+void Game::getPlayers(){
+	int num;
+	cout << "Enter the number of players (1-4): ";
+	cin >> num;
+	
+	while (num < 1 || num > 4){
+		cout << "Invalid number! Enter between 1 and 4 players: ";
+		cin >> num;
+	}
+	for (int j = 0; j < num; j++){
+		string name;
+		ECcolor color;
+		name = getName();
+		color = getColor();
+		players.emplace_back(name, color);
+	}
 }
 
 //-----------------------------------------------------------------
@@ -85,7 +104,6 @@ ostream& Game::print(ostream& os) {
 	for (int i = 0; i < 4; ++i) {
 		os << labels[i] << ":" << rollResults[i] << " ";
 	}
-	os << "\n" << endl;
-	os << player << endl;
+	os << "\n\n";
 	return os;
 }
