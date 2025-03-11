@@ -25,7 +25,7 @@ string Game::getName() {
 	string name;
 	for (;;) {
 		cout << "Enter player name (no spaces): ";
-		cin >> name;  // Read the user name using >>
+		cin >> name;  // Read the user name
 
 		// Check if the name is already taken
 		if (Player::isNameTaken(name)) {
