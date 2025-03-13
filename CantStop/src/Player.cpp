@@ -39,15 +39,6 @@ bool Player::wonColumn(int colNum){
 }
 
 //-----------------------------------------------------------------
-// Print the player name, tile color and score.
-ostream& Player::print(ostream& os) const {
-    os <<"Player Name: " << name
-    <<"\nColor: " <<" \t" <<colorNames[(int)(color)]
-    <<"\nScore: " <<score <<endl;
-    return os;
-}
-
-//-----------------------------------------------------------------
 // Check if a color is already taken
 bool Player::isColorTaken(ECcolor color) {
     int colorIndex = (int)(color);
@@ -76,4 +67,13 @@ string Player::toLowerCase(const string& str) {
     string lowerStr = str;
     transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
     return lowerStr;
+}
+
+//-----------------------------------------------------------------
+// Print the player name, tile color and score.
+ostream& Player::print(ostream& os) const {
+	os <<"Player Name: " << name
+	<<"\nColor: " <<" \t" <<colorNames[(int)(color)]
+	<<"\nScore: " <<score <<endl;
+	return os;
 }

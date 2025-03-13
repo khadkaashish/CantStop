@@ -4,46 +4,18 @@
 // ===============================================================
 #include "Game.hpp"
 //-----------------------------------------------------------------
-// Constructor initializes dice, 2-4 players, and columns
+// Constructor initializes dice, players, and columns
 Game::Game()
-	: dice(new Dice(4)){
+	: dice(new Dice(4)), board(), player(nullptr){
 		getPlayers();
 	}
-
-Player* Game::player(int index) {
-	if (index < 0 || index >= players.size()) {
-		cout << "ERROR: Invalid player index " << index << endl;
-		return nullptr;  // Return NULL if index is invalid
-	}
-	return &players[index];  // Return pointer to the requested player
-}
-
-//-----------------------------------------------------------------
-// Gets all players
-void Game::getPlayers(){
-	int num;
-	cout << "Enter the number of players (1-4): ";
-	cin >> num;
-	
-	while (num < 1 || num > 4){
-		cout << "Invalid number! Enter between 1 and 4 players: ";
-		cin >> num;
-	}
-	for (int j = 0; j < num; j++){
-		string name;
-		ECcolor color;
-		name = getName();
-		color = getColor();
-		players.emplace_back(name, color);
-	}
-}
 
 //-----------------------------------------------------------------
 // Function to get a valid player name (no spaces)
 string Game::getName() {
 	string name;
 	for (;;) {
-		cout << "Enter player name (no spaces): ";
+		cout << "\nEnter player name (no spaces): ";
 		cin >> name;  // Read the user name
 
 		// Check if the name is already taken
@@ -54,6 +26,16 @@ string Game::getName() {
 		break;
 	}
 	return name;
+}
+
+//-----------------------------------------------------------------
+// Gets all players
+void Game::getPlayers() {
+	string name;
+	ECcolor color;
+	name = getName();
+	color = getColor();
+	player = new Player(name,color);
 }
 
 //-----------------------------------------------------------------
@@ -96,14 +78,115 @@ ECcolor Game::getColor(){
 }
 
 //-----------------------------------------------------------------
+// Handles dice rolling and pair selection
+pair<int, int> Game::selectPairs() {
+	char first, second;
+	const int* diceRolls = dice->roll();
+	cout << "\nDice Rolled: ";
+	for (int i = 0; i < 4; ++i) cout << char('A' + i) << ":" << diceRolls[i] << " ";
+	cout << "\n";
+	
+	for (;;) {
+		cout << "Choose two dice (A, B, C, or D) to form a pair (e.g., AB, BC): ";
+		cin >> first >> second;
+		first = toupper(first);
+		second = toupper(second);
+
+		// Check if input is valid
+		if ((first >= 'A' && first <= 'D') && (second >= 'A'
+			&& second <= 'D') && (first != second)) {
+			break;
+		}
+
+		cout << "\nInvalid input! Enter two different dice (A, B, C, or D): ";
+	}
+
+	int pair1 = diceRolls[first - 'A'] + diceRolls[second - 'A'];
+	int pair2 = 0;
+
+	for (int i = 0; i < 4; ++i) {
+		if (char('A' + i) != first && char('A' + i) != second) {
+			if (pair2 == 0) {
+				pair2 = diceRolls[i];
+			} else {
+				pair2 += diceRolls[i];
+			}
+		}
+	}
+	cout << "\nSelected Pairs: (" << pair1 << ") and (" << pair2 << ")\n";
+	return {pair1, pair2};
+}
+
+//-----------------------------------------------------------------
+// Handles moving in columns
+void Game::moveTower() {
+	pair<int, int> pairs = selectPairs();
+	int pair1 = pairs.first;
+	int pair2 = pairs.second;
+	
+	// Try moving using both pairs
+	bool moveSuccess = board.move(pair1);
+	moveSuccess |= board.move(pair2);
+
+	// Display updated board
+	cout << board;
+
+	if (!moveSuccess) {
+		cout << "Bust! Losing progress.\n";
+		board.bust();
+		return;
+	}
+}
+
+//-----------------------------------------------------------------
+// Runs one full turn for a player
+void Game::oneTurn(Player* pp) {
+	board.startTurn(pp);
+	player = pp;
+	bool turnActive = true;
+	
+	while (turnActive) {
+		cout << "\nChoose an action:\n1. Roll Dice \n2. Stop Turn";
+		cout << "\n3. Resign (Not Implemented)\n\nEnter choice (1,2, or 3): ";
+		int choice;
+		cin >> choice;
+		
+		// roll dice
+		if (choice == 1) {
+			moveTower();
+		}
+		// stop turn
+		else if (choice == 2) {
+			cout << "Player stops.\n";
+			board.stop();
+			cout << board;
+			// Check captured columns and call Player::wonColumn()
+			for (int colNum = 2; colNum <= 12; colNum++) {
+				if (board.move(colNum) == false) {
+					player->wonColumn(colNum);
+				}
+			}
+			turnActive = false;
+		}
+		else if (choice == 3) {
+			cout << "Resign is not implemented yet.\n";
+		}
+		else {
+			cout << "Invalid choice. Try again.\n";
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// Starts the game loop
+void Game::play() {
+	cout << "\nStarting game...\n";
+	oneTurn(player);
+}
+
+//-----------------------------------------------------------------
 // Print the Game elements
 ostream& Game::print(ostream& os) {
-	const int* rollResults = dice->roll(); // Roll the dice
-	char labels[] = {'a', 'b', 'c', 'd'};
-	os << "Dice values = ";
-	for (int i = 0; i < 4; ++i) {
-		os << labels[i] << ":" << rollResults[i] << " ";
-	}
-	os << "\n\n";
+	os << player << endl;
 	return os;
 }

@@ -12,19 +12,18 @@
 class Game {
 private:
 	Dice* dice; // Pointer to dice
+	Player* player;
 	Board board;
-	vector<Player> players;
-
 public:
 	Game();
-	~Game() { delete dice; }
+	~Game() { delete dice; delete player;}
 	static string getName();
 	static ECcolor getColor();
-	
-	Player* player(int index);
 	void getPlayers();
-	
-	void oneTurn (Player* pp);
+	void oneTurn(Player* pp);
+	void moveTower();
+	pair<int, int> selectPairs();
+	void play();
 	ostream& print (ostream& os);
 };
 //  Overload the output operator
